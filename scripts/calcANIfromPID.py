@@ -16,7 +16,7 @@ if len(sys.argv) != 2:
 filename=sys.argv[1]
 aniFileHeader='filename\tref\tmeta\thits\tANI\tmetaReads\tpercentMapped\n'
 regANILine='{}\t{}\t{}\t{}\t{}\t{}\t{}\n'
-ref, meta = os.path.basename(filename).split('_vs_')
+ref, meta = os.path.basename(filename).split('-vs-')
 meta = meta.split('.')[0]
 ref = os.path.splitext(ref)[0]
 
@@ -24,10 +24,10 @@ ref = os.path.splitext(ref)[0]
 metaReadsFile = open('metaReads.txt','r')
 metaReads = int()
 fdname=False
-outname='ani_{}vs{}.txt'.format(ref,meta)
+outname='ani_{}-vs-{}.txt'.format(ref,meta)
 for line in metaReadsFile:
 	if meta in line:
-		metaReads=int(line.split(' ')[1])
+		metaReads=int(line.split(' ')[1].rstrip())
 		break
 metaReadsFile.close()
 

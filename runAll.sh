@@ -3,7 +3,7 @@
 #Usage: ./runAll.sh threads(default=10) memlimit(default=4g) minID(default=.8)
 # Some testing with commands from testing with nohup
 # nohup bash runAll.sh 20 4g > $(echo $(date +%Y%m%d_%H%M%S))_nohup.log 2> $(echo $(date +%Y%m%d_%H%M%S))_nohup.err &
-bbpath=/bbmap/bbmap.sh
+bbpath=bbmap.sh
 
 # Make list of all files ending in .f*a in refGenomes directory
 if [ ! -e refGenomeList.txt ]
@@ -76,7 +76,7 @@ for filename in mappingResults/*.bam
 do
         if [ ! -e $filename.sorted.bam ] && [[ $filename != "*.sorted.bam" ]]
         then
-                samtools sort $filename  -o $filename.sorted
+                samtools sort $filename -o $filename.sorted
         fi
 done
 

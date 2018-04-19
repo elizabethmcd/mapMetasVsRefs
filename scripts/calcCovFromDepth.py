@@ -16,7 +16,7 @@ if len(sys.argv) != 2:
 filename=sys.argv[1]
 covFileHeader='filename\tref\tmeta\tbaseCovSum\tcoveredBases\ttotalBases\tAvgCov\n'
 regCovLine='{}\t{}\t{}\t{}\t{}\t{}\t{}\n'
-ref, _, meta=os.path.basename(filename).split('-')
+ref, meta=os.path.basename(filename).split('-vs-')
 meta=meta.split('.')[0]
 
 ## Getting genome size
