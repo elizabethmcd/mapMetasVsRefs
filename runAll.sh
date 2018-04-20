@@ -80,7 +80,7 @@ do
         fi
 done
 
-for filename in mappingResults/*sorted.bam
+for filename in mappingResults/*.sorted
 do
 	outname="${filename%.*}".depth
 	if [ ! -e $outname ]
